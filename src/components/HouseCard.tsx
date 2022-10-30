@@ -1,6 +1,3 @@
-// import React from 'react';
-// import { House } from '../types/types'
-// import { Address } from '../types/types';
 import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap'
 
 interface Props {
@@ -30,7 +27,7 @@ const HouseCard = ({ name, address }: Props) => {
           {" "}
           {`${country}`}
         </CardText>
-        <Button>
+        <Button color="primary" tag="a" href="/house">
           View Property
         </Button>
       </CardBody>
