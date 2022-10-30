@@ -1,6 +1,7 @@
 // import React from 'react'
 import { User, Room } from '../types/types'
 import { Button, Alert } from 'reactstrap'
+import RoomButton from './RoomButton'
 
 type Props = {
   user: User
@@ -18,7 +19,7 @@ const House = ({ user, houseType }: Props) => {
   const displayRooms = (rooms: Room[]) => {
     return rooms.map((room, idx) => {
       return (
-        <li>{room.nickname ? room.nickname : `Room #${idx + 1}`}</li>
+        <RoomButton room={room} idx={idx} />
       )
     })
   }
@@ -56,10 +57,10 @@ const House = ({ user, houseType }: Props) => {
         </ul>
       )}
       <h3>Rooms</h3>
-      <ul>
+      <div className="d-flex flex-column">
         {displayRooms(rooms)}
-      </ul>
-      <Button color="secondary" tag="a" href="/">All houses</Button>
+      </div>
+      <Button className="mt-5" color="secondary" tag="a" href="/">{"< "}ALL HOUSES</Button>
     </div>
   )
 }

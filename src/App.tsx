@@ -1,5 +1,6 @@
 // import React from 'react';
 import { House, User } from './types/types'
+import { Row, Col, Container } from 'reactstrap'
 
 import HouseCard from './components/HouseCard'
 
@@ -26,10 +27,12 @@ function App({ user }: Props) {
       const houseType = status();
 
       return (
-        <section>
-          <h2>{label}</h2>
-          {displayHouses(house, houseType)}
-        </section>
+        <Row>
+          <section>
+            <h2>{label}</h2>
+            {displayHouses(house, houseType)}
+          </section>
+        </Row>
       )
     })
   }
@@ -41,7 +44,11 @@ function App({ user }: Props) {
   return (
     <main>
       <h1 className="text-center">YOUR PROPERTIES</h1>
-      {displayHouseSections(houses)}
+      <Container>
+        <Col>
+          {displayHouseSections(houses)}
+        </Col>
+      </Container>
     </main>
   );
 }
