@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import House from './components/House'
 import { Container } from 'reactstrap'
@@ -21,12 +20,12 @@ const router = createBrowserRouter([
   },
   {
     path: "house",
-    element: <House user={testUser} />
+    element: <House user={testUser} houseType={0} />
 
   },
   {
-    path: "house/:houseId",
-    element: <House user={testUser} />
+    path: "airbnb",
+    element: <House user={testUser} houseType={1} />
   }
 ])
 

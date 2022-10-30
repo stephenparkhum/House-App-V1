@@ -3,10 +3,21 @@ import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap'
 interface Props {
   name: string,
   address?: any;
+  houseType: number;
 }
 
-const HouseCard = ({ name, address }: Props) => {
+const HouseCard = ({ name, address, houseType }: Props) => {
   const { street1, state, city, zipcode, country } = address;
+
+  const houseTypes = [
+    'house',
+    'airbnb'
+  ]
+
+  const buttonLabels = [
+    'View House',
+    'View Airbnb'
+  ]
 
   return (
     <Card
@@ -27,11 +38,11 @@ const HouseCard = ({ name, address }: Props) => {
           {" "}
           {`${country}`}
         </CardText>
-        <Button color="primary" tag="a" href="/house">
-          View Property
+        <Button color={houseType === 0 ? "primary" : "warning"} tag="a" href={`/${houseType ? houseTypes[houseType] : 'house'}`}>
+          {buttonLabels[houseType]}
         </Button>
       </CardBody>
-    </Card>
+    </Card >
   )
 }
 

@@ -4,13 +4,14 @@ import { Button, Alert } from 'reactstrap'
 
 type Props = {
   user: User
+  houseType: number
 }
 
-const House = ({ user }: Props) => {
+const House = ({ user, houseType }: Props) => {
 
   const { houses } = user;
 
-  const house = houses[0]
+  const house = houses[houseType]
   const { isAirbnb, isMainResidence, address, name, rooms } = house
 
 
@@ -34,6 +35,12 @@ const House = ({ user }: Props) => {
           This is your main residence
         </Alert>
       )}
+      <img
+        alt="Sample"
+        className="mb-4"
+        style={{ width: "100%" }}
+        src="https://picsum.photos/500/200"
+      />
       <h2>Name</h2>
       <p>{name}</p>
       <h3>Address</h3>

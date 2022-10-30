@@ -23,18 +23,19 @@ function App({ user }: Props) {
       }
 
       const label = status() == 0 ? 'Your Home' : 'Airbnb'
+      const houseType = status();
 
       return (
         <section>
           <h2>{label}</h2>
-          {displayHouses(house)}
+          {displayHouses(house, houseType)}
         </section>
       )
     })
   }
 
-  const displayHouses = (house: House) => {
-    return <HouseCard name={house.name} address={house.address} />
+  const displayHouses = (house: House, houseType: number) => {
+    return <HouseCard name={house.name} address={house.address} houseType={houseType} />
   }
 
   return (
