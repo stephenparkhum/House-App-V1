@@ -24,6 +24,29 @@ const House = ({ user, houseType }: Props) => {
     })
   }
 
+  const heroImage = (house: any) => {
+    return (
+      <>
+        <div className="p-5 text-center bg-image rounded-3" style={{
+          backgroundImage: "url('https://picsum.photos/100/200')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "100%",
+          height: '400px',
+        }}>
+          <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
+            <div className="d-flex justify-content-center align-items-center h-100">
+              <div className="text-white">
+                <h1 className="mb-3">{house.name}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+
+  }
+
   return (
     <div>
       {isAirbnb && (
@@ -36,12 +59,7 @@ const House = ({ user, houseType }: Props) => {
           This is your main residence
         </Alert>
       )}
-      <img
-        alt="Sample"
-        className="mb-4"
-        style={{ width: "100%" }}
-        src="https://picsum.photos/500/200"
-      />
+      {heroImage(house)}
       <h2>Name</h2>
       <p>{name}</p>
       <h3>Address</h3>
